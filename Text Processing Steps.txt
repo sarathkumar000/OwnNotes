@@ -1,0 +1,51 @@
+1. Remove Numbers
+
+2. Replace the repetition of punctuations
+
+3. Removing Punctuation
+
+4. Replace Contractions
+
+5. Converting to Lowercase
+
+6. Replacing Negations with Antonyms
+
+7. Removing Stopwords
+
+8. Replacing of Elongated Words
+
+9. Stemming/Lemmatizing ( need to know more about it whether it is required or not )
+
+10.Removing tags and URIs from contents
+
+11.Converting and Removal of Emojis
+
+12.Converting and Removal of Emojicons 
+
+13.Chat Words conversion
+
+14.Spelling correction
+
+15.Deduplication
+
+16.special connecting words (https://www.kaggle.com/adityaecdrid/public-version-text-cleaning-vocab-65) like hyy-> to hi
+
+17.Now we can use ngrams to create more insightful words
+
+18.Then we can use Word Embeddings to convert word to vectors
+
+19.Model Fitting
+
+Improvements  :
+
+1. There are certain words which are known with capital words only we need to take for that.
+
+2. You need to take care of special characters
+
+3. we need to take care of unknown words
+
+4. We need to take care of Acronyms
+ 
+5. We need to take care of Spelling  Mistakes ( This can be done manually through mapping)       
+
+6. When we are using pre trained embeddings we should use stemming and stopword removal

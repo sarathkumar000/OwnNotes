@@ -1,0 +1,21 @@
+1. https://www.kaggle.com/deffro/text-pre-processing-techniques
+
+2. https://www.kaggle.com/learn/pandas  ( For Learning about pandas)
+
+3. https://www.kaggle.com/theoviel/improve-your-score-with-some-text-preprocessing ( For improving Accuracy ) 
+
+4. https://www.kaggle.com/christofhenkel/how-to-preprocessing-when-using-embeddings ( Preprocessing steps when using embeddings )
+
+5. https://www.kaggle.com/saranyashalya/getting-started-with-text-preprocessing-nlp
+
+6. https://www.kaggle.com/sudalairajkumar/getting-started-with-text-preprocessing#Removal-of-stopwords ( It has all Stpes and code for that)
+
+7. https://www.kaggle.com/shashanksai/text-preprocessing-using-python( it has info about tf-idf bow,avg w2v )
+
+
+
+<----------------------------------------------------------------------- Links for Machine Learning -------------------------------------------------->
+
+1. https://www.kaggle.com/ldfreeman3/a-data-science-framework-to-achieve-99-accuracy ( v.v.v.imp Datascience FrameWork Not only for text processing )
+ 
+2.https://www.kaggle.com/mjbahmani/a-comprehensive-ml-workflow-with-python ( It contains all the Links required like courses data and best resources at kaggle links etc )

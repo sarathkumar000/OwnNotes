@@ -1,0 +1,121 @@
+                                           WHY WE NEED TO DO PREPROCESSING STEPS
+
+https://www.kaggle.com/sudalairajkumar/getting-started-with-text-preprocessing#Removal-of-stopwords
+
+1. Lower Casing
+
+Lower casing is a common text preprocessing technique. The idea is to convert the input text into same casing format so that 'text', 'Text' and 'TEXT' are treated the same way.
+
+This is more helpful for text featurization techniques like frequency, tfidf as it helps to combine the same words together thereby reducing the duplication and get correct counts / tfidf values.
+
+This may not be helpful when we do tasks like Part of Speech tagging (where proper casing gives some information about Nouns and so on) and Sentiment Analysis (where upper casing refers to anger and so on)
+
+By default, lower casing is done my most of the modern day vecotirzers and tokenizers like sklearn TfidfVectorizer and Keras Tokenizer. So we need to set them to false as needed depending on our use case.
+
+2. Removal of Punctuations
+
+One another common text preprocessing technique is to remove the punctuations from the text data. This is again a text standardization process that will help to treat 'hurray' and 'hurray!' in the same way.
+
+We also need to carefully choose the list of punctuations to exclude depending on the use case. For example, the string.punctuation in python contains the following punctuation symbols
+
+!"#$%&\'()*+,-./:;<=>?@[\\]^_{|}~`
+
+We can add or remove more punctuations as per our need.
+
+3. Removal of stopwords
+
+Stopwords are commonly occuring words in a language like 'the', 'a' and so on. They can be removed from the text most of the times, as they don't provide valuable information for downstream analysis. In cases like Part of Speech tagging, we should not remove them as provide very valuable information about the POS.
+
+These stopword lists are already compiled for different languages and we can safely use them. For example, the stopword list for english language from the nltk package can be seen below.
+
+4. Removal of Frequent words
+
+In the previos preprocessing step, we removed the stopwords based on language information. But say, if we have a domain specific corpus, we might also have some frequent words which are of not so much importance to us.
+
+So this step is to remove the frequent words in the given corpus. If we use something like tfidf, this is automatically taken care of.
+
+5. Removal of Rare words( If needed We can remove )
+This is very similar to previous preprocessing step but we will remove the rare words from the corpus.
+
+6. Stemming
+
+Stemming is the process of reducing inflected (or sometimes derived) words to their word stem, base or root form (From Wikipedia)
+
+For example, if there are two words in the corpus walks and walking, then stemming will stem the suffix to make them walk. But say in another example, we have two words console and consoling, the stemmer will remove the suffix and make them consol which is not a proper english word.
+
+There are several type of stemming algorithms available and one of the famous one is porter stemmer which is widely used. We can use nltk package for the same.
+
+7. Lemmatization
+
+Lemmatization is similar to stemming in reducing inflected words to their word stem but differs in the way that it makes sure the root word (also called as lemma) belongs to the language.
+
+As a result, this one is generally slower than stemming process. So depending on the speed requirement, we can choose to use either stemming or lemmatization.
+
+We can see that the trailing e in the propose and private is retained when we use lemmatization unlike stemming.
+
+Wait. There is one more thing in lemmatization. Let us try to lemmatize running now.
+
+lemmatizer.lemmatize("running")
+'running'
+Wow. It returned running as such without converting it to the root form run. This is because the lemmatization process depends on the POS tag to come up with the correct lemma. Now let us lemmatize again by providing the POS tag for the word.
+
+lemmatizer.lemmatize("running", "v") # v for verb
+'run'
+
+Now we are getting the root form run. So we also need to provide the POS tag of the word along with the word for lemmatizer in nltk. Depending on the POS, the lemmatizer may return different results.
+
+Let us take the example, stripes and check the lemma when it is both verb and noun.
+
+print("Word is : stripes")
+print("Lemma result for verb : ",lemmatizer.lemmatize("stripes", 'v'))
+print("Lemma result for noun : ",lemmatizer.lemmatize("stripes", 'n'))
+Word is : stripes
+Lemma result for verb :  strip
+Lemma result for noun :  stripe
+
+8. Removal of Emojis
+
+With more and more usage of social media platforms, there is an explosion in the usage of emojis in our day to day life as well. Probably we might need to remove these emojis for some of our textual analysis.
+
+9. Removal of Emoticons
+
+This is what we did in the last step right? Nope. We did remove emojis in the last step but not emoticons. There is a minor difference between emojis and emoticons.
+
+From Grammarist.com, emoticon is built from keyboard characters that when put together in a certain way represent a facial expression, an emoji is an actual image.
+
+:-) is an emoticon
+
+Please note again that the removal of emojis / emoticons are not always preferred and decision should be made based on the use case at hand.
+
+10. Conversion of Emoticon to Words
+
+In the previous step, we have removed the emoticons. In case of use cases like sentiment analysis, the emoticons give some valuable information and so removing them might not be a good solution. What can we do in such cases?
+
+One way is to convert the emoticons to word format so that they can be used in downstream modeling processes. Thanks for Neel again for the wonderful dictionary that we have used in the previous step. We are going to use that again for conversion of emoticons to words.
+
+11. Conversion of Emoji to Words
+
+Now let us do the same for Emojis as well. Neel Shah has put together a list of emojis with the corresponding words as well as part of his Github repo. We are going to make use of this dictionary to convert the emojis to corresponding words.
+
+Again this conversion might be better than emoji removal for certain use cases. Please use the one that is suitable for the use case.
+
+12. Removal of URLs
+
+Next preprocessing step is to remove any URLs present in the data. For example, if we are doing a twitter analysis, then there is a good chance that the tweet will have some URL in it. Probably we might need to remove them for our further analysis.
+
+13. Removal of HTML Tags
+
+One another common preprocessing technique that will come handy in multiple places is removal of html tags. This is especially useful, if we scrap the data from different websites. We might end up having html strings as part of our text.
+
+First, let us try to remove the HTML tags using regular expressions.
+
+14. Chat Words Conversion
+
+This is an important text preprocessing step if we are dealing with chat data. People do use a lot of abbreviated words in chat and so it might be helpful to expand those words for our analysis purposes.
+
+Got a good list of chat slang words from this repo. We can use this for our conversion here. We can add more words to this list.
+
+15. Spelling Correction 
+
+One another important text preprocessing step is spelling correction. Typos are common in text data and we might want to correct those spelling mistakes before we do our analysis.
+
